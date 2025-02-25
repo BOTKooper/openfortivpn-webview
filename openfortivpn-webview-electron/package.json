@@ -9,13 +9,15 @@
   "scripts": {
     "start": "electron index.js",
     "dist:linux": "electron-builder --linux --x64 --arm64",
+    "dist:linux:appimage": "electron-builder --linux AppImage --x64",
+    "install:linux": "npm run dist:linux:appimage && mv dist/openfortivpn-webview-*.AppImage dist/openfortivpn-webview && sudo install dist/openfortivpn-webview /usr/bin",
     "dist:mac": "electron-builder --mac"
   },
   "main": "index.js",
   "private": true,
   "devDependencies": {
-    "electron": "^28.2.0",
-    "electron-builder": "^24.13.3"
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
   },
   "dependencies": {
     "yargs": "^17.7.2"
